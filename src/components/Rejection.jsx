@@ -99,6 +99,9 @@ export default function Rejection() {
                     }}>{item.approvalScore.toFixed(2)}</div>
         </div>
         </div>
+        <button className="details-button" onClick={() => handleRowClick(item.id)}>
+        Get Details
+      </button>
           
           </div>
             ))}
