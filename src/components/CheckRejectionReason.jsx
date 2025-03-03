@@ -3,12 +3,50 @@ import { redirect, useLocation } from "react-router-dom";
 export default function CheckRejectionReason  () {
   const location = useLocation();
   const responseData=location.state?.data; 
-  const item=responseData.User;
+  const data=responseData.User;
   const response=responseData.response;
   
-  // const task1Heading = response.replace(/\*\*/g, "");
-  console.log(typeof user)
-   const data=response.replace(/\*/g,"");
+     
+  const userData={
+  "Id": data.id,
+  "Name": data.name,
+  "Age": parseInt(data.age, 10),
+  "Marital Status": data.maritalStatus,
+  "Dependents": data.dependents,
+  "Employment Status": data.employmentStatus,
+  "Days at Current Job": parseInt(data.daysAtCurrentJob, 10),
+  "Annual Income": parseInt(data.annualIncome, 10),
+  "Payment History": data.paymentHistory.toFixed(3),
+  "Delinquencies": data.delinquencies,
+  "Credit Score": data.creditScore.toFixed(3),
+  "Credit History Length": data.creditHistoryLength.toFixed(3),
+  "Existing Credit Limit": data.existingCreditLimit.toFixed(3),
+  "Existing Credit Usage": data.existingCreditUsage.toFixed(2),
+  "Debt to Income Ratio": data.debtToIncomeRatio.toFixed(6),
+  "Num of Inquiries": parseInt(data.numOfInquiries,10),
+  "US Citizen Address Verified": data.usCitizenAddressNotVerified ? "NO":"YES",
+  "Employment Verified": data.employmentNotVerified ? "NO":"YES",
+  "Income Verified": data.incomeNotVerified ? "NO":"YES",
+  "Email Verified": data.emailNotVerified ? "NO":"YES",
+  "SSN Verified": data.ssnNotVerified ? "NO":"YES",
+  "Residential Address Verified": data.residentialAddressNotVerified? "NO":"YES",
+  "DOB Verified": data.dobNotVerified ? "NO":"YES",
+  "Phone Number Verified": data.phoneNumberNotVerified ? "NO":"YES",
+  "Duplicate Application": data.duplicateApplication ? "NO":"YES",
+  "Illogical Name Found": data.illogicalNameFound ?  "NO":"YES",
+  "Credit Application Complete": data.creditApplicationNotComplete ? "NO":"YES",
+  "Predicted Approval Status": data.predictedApprovalStatus,
+  "Approval Score": data.approvalScore.toFixed(4)
+  
+  }
+  const groupedFields = {
+    "Personal Details": ["Name","Id", "Age", "Marital Status", "Dependents", "Employment Status", "Days at Current Job", "Annual Income"],
+    "Credit History": ["Payment History", "Delinquencies", "Credit Score", "Credit History Length", "Existing Credit Limit", "Existing Credit Usage", "Debt to Income Ratio", "Num of Inquiries"],
+    "Verification Checks": ["US Citizen Address Verified", "Employment Verified", "Income Verified", "Email Verified", "SSN Verified", "Residential Address Verified", "DOB Verified", "Phone Number Verified"],
+    "Approval Details": ["Duplicate Application", "Illogical Name Found", "Credit Application Complete", "Predicted Approval Status", "Approval Score"]
+  };
+  
+   const data1=response.replace(/\*/g,"");
 
   const formatText = (text) => {
     return text.split("\n").map((line, index) => {
@@ -31,48 +69,37 @@ export default function CheckRejectionReason  () {
     
       <>
         <h2>Rejected Application Data</h2>
-        <table border="0.75">
-          <thead>
-            <tr style={{backgroundColor:"red",color:"white",opacity:"80%"}}>
-              <th>Unique ID</th>
-              <th>Age</th>
-              <th>Marital Status</th>
-              <th>Annual Income</th>
-              <th>Credit Score</th>
-              <th>Existing Credit Limit</th>
-              <th>Existing Credit Usage</th>
-              <th>Debt to Income Ratio</th>
-              <th>Approval Status</th>
-              <th>Approval Score</th>
-            </tr>
-          </thead>
-          <tbody >
-           
-              <tr key={item.id} style={{ cursor: "pointer",backgroundColor:"rgb(245, 250, 223)" }}>
-                <td>{item.id}</td>
-                <td>{item.age.toFixed(1)}</td>
-                <td>{item.maritalStatus}</td>
-                <td>${item.annualIncome.toLocaleString()}</td>
-                <td>{item.creditScore}</td>
-                <td>{item.existingCreditLimit}</td>
-                <td>{item.existingCreditUsage}</td>
-                <td>{item.debtToIncomeRatio}</td>
-                <td>{item.approvalStatus}</td>
-                <td>{item.approvalScore}</td>
-                {/* <td>{item.</td> */}
-              </tr>
-            
-            </tbody>
+       
+        {Object.keys(groupedFields).map((category) => (
+          <div key={category} className="table-container">
+            <h3 className="table-title">{category}</h3>
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                {groupedFields[category].map((field) => (
+                  <tr key={field}>
+                    <td className="field-name">{field}</td>
+                    <td>{userData[field]}</td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
+          </div>
+        ))}
             </>
      
       <h2>Credit Application Decision</h2>
       <div style={{justifyContent:"center",backgroundColor:"rgb(245, 250, 223)"}}>
-      {formatText(data)}
+      {formatText(data1)}
       </div>
       <a style={{textDecoration: "none", color: "blue",marginRight:"90%" }} href="/Homepage">Go Back </a>
     </div>
   );
 };
 
-// Example Usage with API Data
+
