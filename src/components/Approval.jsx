@@ -61,7 +61,7 @@ export default function Approval() {
                 <td>{item.maritalStatus}</td>
                 <td>${item.annualIncome.toLocaleString()}</td>
                 <td>{item.creditScore}</td>
-                <td>{item.approvalStatus}</td>
+                <td>{item.predictedApprovalStatus}</td>
               </tr>
             ))}
           </tbody>

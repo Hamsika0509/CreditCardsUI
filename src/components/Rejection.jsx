@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "../App.css"
+import "./Rejection.css";
 
 export default function Rejection() {
   const [applications, setApplications] = useState([]);
@@ -73,66 +74,35 @@ export default function Rejection() {
           </div>
           </>
       )}
-      <div className="card-container">
-  {applications.map((item) => (
-    <div className="card-wrapper" key={item.id}>
+    
+      
+           {applications.map((item) => (
+            <div className="card-wrapper" key={item.id}>
       <div className="card">
         <div className="card-content">
-          <div className="text-section">
-            <h3 className="card-title">{item.name}</h3>
-            <p className="card-subtitle">ID: {item.id}</p>
-          </div>
-          <div className="score-badge" style={{ 
-                display: "inline-block", 
-                width: "60px", 
-                height: "60px", 
-                lineHeight: "30px", 
-                borderRadius: "50%", 
-                backgroundColor: "blue", 
-                color: "white",
-                marginLeft:"50px", 
-                textAlign: "center", 
-                fontSize: "12px", 
-                fontWeight: "bold" 
-              }}>{item.approvalScore.toFixed(2)}</div>
-        </div>
-      </div>
-      <button className="details-button" onClick={() => handleRowClick(item.id)}>
-        Get Details
-      </button>
-    </div>
-  ))}
-</div>
-          {/* {applications.map((item) => (
-            <div style={{alignItems:"Inline"}}>
-              <div className="card" style={{alignItems:"Inline"}} key={item.id}>
-                <h3 className="card-title" style={{textAlign:"Left"}}>{item.name}</h3>
-                <p className="card-subtitle" style={{textAlign:"Left"}}>ID: {item.id}</p>
-                <div className="score-badge" style={{ 
-                display: "inline-block", 
-                width: "70px", 
-                height: "70px", 
-                lineHeight: "30px", 
-                borderRadius: "50%", 
-                backgroundColor: "blue", 
-                color: "white",
-                marginLeft:"50px", 
-                textAlign: "center", 
-                fontSize: "12px", 
-                fontWeight: "bold" 
-              }}
-               >
-                {item.approvalScore.toFixed(2)}
+                <div className="text-section">
+                  <h3 className="card-title">{item.name}</h3>
+                  <p className="card-subtitle">ID: {item.id}</p>
                 </div>
-               
-                
-               
-              </div>
-               <button style={{width:"20%"}}className="details-button" onClick={() => handleRowClick(item.id)}>
-               Get Details
-             </button></div>
+                <div className="score-badge" style={{ 
+                      display: "inline-block", 
+                      width: "60px", 
+                      height: "60px", 
+                      lineHeight: "30px", 
+                      borderRadius: "50%", 
+                      backgroundColor: "blue", 
+                      color: "white",
+                      marginLeft:"50px", 
+                      textAlign: "center", 
+                      fontSize: "12px", 
+                      fontWeight: "bold" 
+                    }}>{item.approvalScore.toFixed(2)}</div>
+        </div>
+        </div>
+          
+          </div>
             ))}
-       */}
+       
     </div>
   );
 }
