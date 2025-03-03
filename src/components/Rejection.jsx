@@ -53,7 +53,10 @@ export default function Rejection() {
   return (
     <div>
        {loading ? (          
-           <div style={{width:"100%",color:"Green"}} > <strong>Loading...</strong></div>        
+           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100px" }}>
+           <div className="loader"></div>
+           <strong style={{ color: "green", marginTop: "10px" }}>Loading...</strong>
+         </div>         
         ) :(<><h5>Enter no of Applications required</h5>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <input 
@@ -88,10 +91,35 @@ export default function Rejection() {
             {applications.map((item, index) => (
               <tr key={item.id}  style={{ cursor: "pointer",backgroundColor:"rgb(248, 251, 234)" }}>
                 <td >{item.id}</td>
-                <td>{item.age.toFixed(1)}</td>
-                <td>{item.approvalScore}</td>
-                <button style={{width:"65%",padding:"0 0"}} onClick={() => handleRowClick(item.id)}> Get Details</button>
-                {/* <td>{item.</td> */}
+                <td>{item.name}</td>
+                <td>
+  <span 
+    style={{ 
+      display: "inline-block", 
+      width: "50px", 
+      height: "40px", 
+      lineHeight: "30px", 
+      borderRadius: "50%", 
+      backgroundColor: "green", 
+      color: "white", 
+      textAlign: "center", 
+      fontSize: "12px", 
+      fontWeight: "bold" 
+    }}
+  >
+    {item.approvalScore.toFixed(2)}
+  </span>
+</td>
+
+               
+                <button 
+  style={{ width: "65%", padding: "6px", background: "red", color: "white", border: "none", borderRadius: "4px", cursor: "pointer" }} 
+  onClick={() => handleRowClick(item.id)}
+>
+  Get Details
+</button>
+
+                
               </tr>
             ))}
           </tbody>
