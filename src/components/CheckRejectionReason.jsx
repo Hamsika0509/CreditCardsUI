@@ -32,9 +32,9 @@ export default function CheckRejectionReason  () {
   "Residential Address Verified": data.residentialAddressNotVerified? "NO":"YES",
   "DOB Verified": data.dobNotVerified ? "NO":"YES",
   "Phone Number Verified": data.phoneNumberNotVerified ? "NO":"YES",
-  "Duplicate Application": data.duplicateApplication ? "NO":"YES",
-  "Illogical Name Found": data.illogicalNameFound ?  "NO":"YES",
-  "Credit Application Complete": data.creditApplicationNotComplete ? "NO":"YES",
+  "Duplicate Application": data.duplicateApplication ? "YES":"NO",
+  "Illogical Name Found": data.illogicalNameFound ?  "YES":"NO",
+  "Credit Application Complete": data.creditApplicationNotComplete ? "YES":"NO",
   "Predicted Approval Status": data.predictedApprovalStatus,
   "Approval Score": data.approvalScore.toFixed(4)
   
@@ -42,8 +42,8 @@ export default function CheckRejectionReason  () {
   const groupedFields = {
     "Personal Details": ["Name","Id", "Age", "Marital Status", "Dependents", "Employment Status", "Days at Current Job", "Annual Income"],
     "Credit History": ["Payment History", "Delinquencies", "Credit Score", "Credit History Length", "Existing Credit Limit", "Existing Credit Usage", "Debt to Income Ratio", "Num of Inquiries"],
-    "Verification Checks": ["US Citizen Address Verified", "Employment Verified", "Income Verified", "Email Verified", "SSN Verified", "Residential Address Verified", "DOB Verified", "Phone Number Verified"],
-    "Approval Details": ["Duplicate Application", "Illogical Name Found", "Credit Application Complete", "Predicted Approval Status", "Approval Score"]
+    "Verification Checks": ["US Citizen Address Verified", "Illogical Name Found","Employment Verified", "Income Verified", "Email Verified", "SSN Verified", "Residential Address Verified", "DOB Verified", "Phone Number Verified"],
+    "Approval Details": ["Duplicate Application", "Credit Application Complete", "Predicted Approval Status", "Approval Score"]
   };
   
    const data1=response.replace(/\*/g,"");
