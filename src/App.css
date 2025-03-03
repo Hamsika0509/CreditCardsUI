@@ -226,3 +226,77 @@ button {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.card-wrapper {
+  display: flex;
+  align-items: center;  /* Ensures the card & button align in a row */
+  gap: 10px;  /* Adds space between card & button */
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 15px;
+  width: 350px;
+  height:150px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.text-section {
+  text-align: left;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: #555;
+}
+
+.score-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: blue;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.details-button {
+  padding: 10px 15px;
+  background: red;
+  color: white;
+  width:35%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap; /* Prevents button text from wrapping */
+}

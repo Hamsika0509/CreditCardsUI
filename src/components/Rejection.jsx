@@ -73,58 +73,66 @@ export default function Rejection() {
           </div>
           </>
       )}
-      {applications.length > 0 && ( // Only show table if data is available
-      <>
-       
-        <h2>Rejected Applications</h2>
-        <table border="0.75" styel={{width:"500%",height:"100%"}}>
-          <thead >
-            <tr >
-              <th >Unique ID</th>
-              <th>Name</th>
-              <th>Approval Score</th>
-              
-            </tr>
-          </thead>
-          <tbody >
-          
-            {applications.map((item, index) => (
-              <tr key={item.id}  style={{ cursor: "pointer",backgroundColor:"rgb(248, 251, 234)" }}>
-                <td >{item.id}</td>
-                <td>{item.name}</td>
-                <td>
-  <span 
-    style={{ 
-      display: "inline-block", 
-      width: "50px", 
-      height: "40px", 
-      lineHeight: "30px", 
-      borderRadius: "50%", 
-      backgroundColor: "green", 
-      color: "white", 
-      textAlign: "center", 
-      fontSize: "12px", 
-      fontWeight: "bold" 
-    }}
-  >
-    {item.approvalScore.toFixed(2)}
-  </span>
-</td>
-
+      <div className="card-container">
+  {applications.map((item) => (
+    <div className="card-wrapper" key={item.id}>
+      <div className="card">
+        <div className="card-content">
+          <div className="text-section">
+            <h3 className="card-title">{item.name}</h3>
+            <p className="card-subtitle">ID: {item.id}</p>
+          </div>
+          <div className="score-badge" style={{ 
+                display: "inline-block", 
+                width: "60px", 
+                height: "60px", 
+                lineHeight: "30px", 
+                borderRadius: "50%", 
+                backgroundColor: "blue", 
+                color: "white",
+                marginLeft:"50px", 
+                textAlign: "center", 
+                fontSize: "12px", 
+                fontWeight: "bold" 
+              }}>{item.approvalScore.toFixed(2)}</div>
+        </div>
+      </div>
+      <button className="details-button" onClick={() => handleRowClick(item.id)}>
+        Get Details
+      </button>
+    </div>
+  ))}
+</div>
+          {/* {applications.map((item) => (
+            <div style={{alignItems:"Inline"}}>
+              <div className="card" style={{alignItems:"Inline"}} key={item.id}>
+                <h3 className="card-title" style={{textAlign:"Left"}}>{item.name}</h3>
+                <p className="card-subtitle" style={{textAlign:"Left"}}>ID: {item.id}</p>
+                <div className="score-badge" style={{ 
+                display: "inline-block", 
+                width: "70px", 
+                height: "70px", 
+                lineHeight: "30px", 
+                borderRadius: "50%", 
+                backgroundColor: "blue", 
+                color: "white",
+                marginLeft:"50px", 
+                textAlign: "center", 
+                fontSize: "12px", 
+                fontWeight: "bold" 
+              }}
+               >
+                {item.approvalScore.toFixed(2)}
+                </div>
                
-                <button 
-  style={{ width: "65%", padding: "6px", background: "red", color: "white", border: "none", borderRadius: "4px", cursor: "pointer" }} 
-  onClick={() => handleRowClick(item.id)}
->
-  Get Details
-</button>
-
                 
-              </tr>
+               
+              </div>
+               <button style={{width:"20%"}}className="details-button" onClick={() => handleRowClick(item.id)}>
+               Get Details
+             </button></div>
             ))}
-          </tbody>
-        </table>
-        </>)}
+       */}
     </div>
   );
 }
