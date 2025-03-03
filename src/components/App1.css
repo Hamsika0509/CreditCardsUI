@@ -1,0 +1,75 @@
+/* Set up the main container to use Flexbox */
+.page-container {
+    display: flex;
+    justify-content: space-between; /* Space between the left and right sections */
+    padding: 20px;
+    height: 100vh; /* Take the full height of the screen */
+  }
+  
+  /* Left side of the page */
+  .left-side {
+    width: 100%; /* Takes almost half of the page */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto; /* Add vertical scroll if content overflows */
+    
+  }
+  .left-side {
+    overflow: auto;
+  }
+  
+  /* Hide scrollbar for webkit-based browsers (Chrome, Safari, Edge) */
+  .left-side::-webkit-scrollbar {
+    display: none;
+  }
+  /* Right side of the page */
+  .right-side {
+    width: 100%; /* Takes almost half of the page */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    overflow-y: auto; /* Add vertical scroll if content overflows */
+  }
+  .right-side {
+    overflow: auto;
+  }
+  
+  /* Hide scrollbar for webkit-based browsers (Chrome, Safari, Edge) */
+  .right-side::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Styling the table */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: red;
+    opacity:80%;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  h3 {
+    text-align: center;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  
