@@ -58,7 +58,7 @@ export default function Rejection() {
            <div className="loader"></div>
            <strong style={{ color: "green", marginTop: "10px" }}>Loading...</strong>
          </div>         
-        ) :(<><h5>Enter no of Applications required</h5>
+        ) :(<><h5>Enter no of Applications to fetch</h5>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <input 
           style={{width:"50%",padding:"7px",marginBottom:"5px"}}
@@ -77,7 +77,7 @@ export default function Rejection() {
     
       
            {applications.map((item) => (
-            <div className="card-wrapper" key={item.id}>
+            <div className="card-wrapper" key={item.id}  style={{marginBottom:"15px"}}>
       <div className="card">
         <div className="card-content">
                 <div className="text-section">
@@ -87,12 +87,12 @@ export default function Rejection() {
                 <div className="score-badge" style={{ 
                       display: "inline-block", 
                       width: "60px", 
-                      height: "60px", 
+                      height: "45px", 
                       lineHeight: "30px", 
                       borderRadius: "50%", 
-                      backgroundColor: "blue", 
+                      backgroundColor: "green", 
                       color: "white",
-                      marginLeft:"50px", 
+                      // marginLeft:"50px", 
                       textAlign: "center", 
                       fontSize: "12px", 
                       fontWeight: "bold" 
